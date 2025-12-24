@@ -1,0 +1,216 @@
+\documentclass[10pt]{beamer}
+
+% Make theme files discoverable regardless of compile working directory
+\usepackage{currfile}
+\makeatletter
+\edef\input@path{{\currfileabsdir theme/}}
+\makeatother
+
+% Load Bilkent beamer theme + colors from ./theme/
+\usepackage{beamerthemeBilkent}
+\usefonttheme[onlysmall]{structurebold}
+\mode<presentation>
+\setbeamercovered{transparent=10}
+
+\usepackage{graphicx}
+\graphicspath{{\currfileabsdir figures/}{\currfileabsdir theme/}}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tikz}
+\setbeamertemplate{navigation symbols}{}
+
+% Presentation metadata
+\title[Short Title]{Your Presentation Title}
+\author[Short Name]{Your Name}
+\institute{Bilkent University}
+\date{\today}
+
+\begin{document}
+
+% ----------------------------------------------------------------
+% Title slide
+% ----------------------------------------------------------------
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% ----------------------------------------------------------------
+% Centered content with itemize
+% ----------------------------------------------------------------
+\begin{frame}[c]{Introduction}
+    \textbf{Problem Statement:}
+    \begin{itemize}
+        \item First key point
+        \item Second key point
+        \item Third key point
+    \end{itemize}
+
+    \medskip
+
+    \textbf{Goal:} State your objective clearly
+\end{frame}
+
+% ----------------------------------------------------------------
+% Using different block types
+% ----------------------------------------------------------------
+\begin{frame}[c]{Block Examples}
+    \begin{columns}[c]
+        \begin{column}{0.48\textwidth}
+             \begin{block}{Regular Block}
+                \begin{itemize}
+                    \item Item 1
+                    \item Item 2
+                    \item Item 3
+                \end{itemize}
+             \end{block}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+             \begin{alertblock}{Alert Block}
+                \begin{itemize}
+                    \item Important item
+                    \item Critical point
+                \end{itemize}
+             \end{alertblock}
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.5cm}
+    
+    \begin{exampleblock}{Example Block}
+        \begin{itemize}
+            \item Example 1
+            \item Example 2
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+% ----------------------------------------------------------------
+% Table with references at bottom
+% ----------------------------------------------------------------
+\begin{frame}[b]{Results Table}
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|ccc}
+\toprule
+\textbf{Method} & \textbf{Metric 1}\textsuperscript{[1]} & \textbf{Metric 2}\textsuperscript{[2]} & \textbf{Metric 3}\textsuperscript{[3]} \\
+\midrule
+Baseline & 0.85 & 0.72 & 0.91 \\
+Method A & 0.88 & 0.75 & 0.93 \\
+\textbf{Method B (Ours)} & \textbf{0.92} & \textbf{0.81} & \textbf{0.95} \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Performance comparison across different methods.}
+\end{table}
+
+\vfill 
+\hrule
+\vspace{0.1cm}
+\tiny
+\textbf{References:} \\
+{[1]} Author A. et al., ``Paper Title,'' \textit{Conference/Journal}, Year. \\
+{[2]} Author B. et al., ``Another Paper,'' \textit{Venue}, Year. \\
+{[3]} Author C. et al., ``Third Paper,'' \textit{Publication}, Year.
+\end{frame}
+
+% ----------------------------------------------------------------
+% Using colors from the theme
+% ----------------------------------------------------------------
+\begin{frame}[t]{Color Examples}
+    \small
+    The Bilkent theme defines custom colors you can use:
+    \vspace{0.3cm}
+
+    \begin{columns}[t]
+        \begin{column}{0.48\textwidth}
+            \begin{block}{Option 1}
+                \centering
+                \textbf{Design Choice}\\
+                \raggedright
+                \textbf{Color:} \textcolor{flagred}{Red (flagred)}
+            \end{block}
+        \end{column}
+
+        \begin{column}{0.48\textwidth}
+            \begin{block}{Option 2}
+                \centering
+                \textbf{Design Choice}\\
+                \raggedright
+                \textbf{Color:} \textcolor{pantonereflectblue}{Blue (pantonereflectblue)}
+            \end{block}
+        \end{column}
+    \end{columns}
+
+    \vspace{0.3cm}
+
+    Available colors: \texttt{pantonereflectblue}, \texttt{flagred}
+\end{frame}
+
+% ----------------------------------------------------------------
+% Multiple columns layout
+% ----------------------------------------------------------------
+\begin{frame}[b]{Three Column Layout}
+    \begin{columns}[t]
+        \begin{column}{0.32\textwidth}
+            \begin{block}{Column 1}
+                \begin{minipage}[t][3cm]{\textwidth}
+                    \begin{itemize}
+                        \item Point A
+                        \item Point B
+                        \item Point C
+                    \end{itemize}
+                \end{minipage}
+            \end{block}
+        \end{column}
+
+        \begin{column}{0.32\textwidth}
+            \begin{block}{Column 2}
+                \begin{minipage}[t][3cm]{\textwidth}
+                    \begin{itemize}
+                        \item Point D
+                        \item Point E
+                        \item Point F
+                    \end{itemize}
+                \end{minipage}
+            \end{block}
+        \end{column}
+
+        \begin{column}{0.32\textwidth}
+            \begin{block}{Column 3}
+                \begin{minipage}[t][3cm]{\textwidth}
+                    \begin{itemize}
+                        \item Point G
+                        \item Point H
+                        \item Point I
+                    \end{itemize}
+                \end{minipage}
+            \end{block}
+        \end{column}
+    \end{columns}
+
+    \vfill 
+    \hrule
+    \vspace{0.1cm}
+    \tiny
+    \textbf{Note:} Use \texttt{minipage} with fixed height for aligned columns.
+\end{frame}
+
+% ----------------------------------------------------------------
+% Conclusion slide
+% ----------------------------------------------------------------
+\begin{frame}[t]{Conclusion}
+    \begin{itemize}
+        \item \textbf{Summary:} Brief recap of main points
+        \item \textbf{Results:} Key findings
+        \item \textbf{Future Work:} Next steps
+    \end{itemize}
+
+    \vspace{1.5cm}
+    \centering
+    \Large \textbf{Thank You!} \\
+    \large Questions?
+\end{frame}
+
+\end{document}
